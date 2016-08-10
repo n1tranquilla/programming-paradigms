@@ -1,1 +1,1 @@
-# functional-programming-examples
+# programming-paradigms
