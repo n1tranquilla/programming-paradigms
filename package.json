@@ -1,0 +1,22 @@
+{
+  "name": "programming-paradigms",
+  "version": "1.0.0",
+  "description": "examples of programming paradigms",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/n1tranquilla/programming-paradigms.git"
+  },
+  "author": "Nathan Tranquilla <n1tranquilla@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/n1tranquilla/programming-paradigms/issues"
+  },
+  "homepage": "https://github.com/n1tranquilla/programming-paradigms#readme",
+  "dependencies": {
+    "ramda": "^0.22.1"
+  }
+}
