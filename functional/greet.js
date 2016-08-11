@@ -1,13 +1,35 @@
 "use strict";
 
-const { compose, prepend, join, __ } = require('ramda');
+const { compose } = require('ramda');
 
-const greet=compose(
-    join(''),
-    prepend('Hello '),
-    prepend(__,'!')
-);
+const prepend=(str)=>(target)=>str+target;
+const append=(str)=>(target)=>target+str;
 
-console.log(greet("Nathan"));
+const f=append(' How are you doing?');
+const g=append('!');
+const h=prepend('Hello, ');
+
+const greet=compose(g,h);
+console.log(greet('Nathan'));
+//Hello, Nathan!
+
+const askQuestion=compose(f,g);
+console.log(askQuestion('Nathan'));
+//Nathan! How are you doing?
+
+// compose( f , compose(g,h)  )
+let bePolite=compose(f, greet);
+console.log(bePolite('Nathan'));
+//Hello, Nathan! How are you doing?
+
+// compose( compose(f,g), h )
+bePolite=compose(askQuestion,h);
+console.log(bePolite('Nathan'));
+//Hello, Nathan! How are you doing?
+
+// because of associativity
+// compose( f , compose(g,h) ) === compose( compose(f,g), h )
+
+
 
 
