@@ -17,11 +17,15 @@ const askQuestion=compose(f,g);
 console.log(askQuestion('Nathan'));
 //Nathan! How are you doing?
 
+//We can compose our sentence a few different ways:
+
+//1.
 // compose( f , compose(g,h)  )
 let bePolite=compose(f, greet);
 console.log(bePolite('Nathan'));
 //Hello, Nathan! How are you doing?
 
+//2.
 // compose( compose(f,g), h )
 bePolite=compose(askQuestion,h);
 console.log(bePolite('Nathan'));
