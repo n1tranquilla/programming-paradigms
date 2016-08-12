@@ -22,4 +22,4 @@ console.log(obj);
 
 //mapKey is a pure function, because it modifies an object (agg)
 //within the scope of its function. Combining this with the reduce
-//function, mapKey is portable and testable. 
+//function, mapKey is portable and testable.
