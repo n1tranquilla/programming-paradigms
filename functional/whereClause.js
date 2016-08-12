@@ -3,23 +3,24 @@
 const { compose, either, equals, head, ifElse, join, over,
     lensIndex, map, curry, identity, concat, toPairs } = require('ramda');
 
-//isDateParam :: array -> boolean
+//Goal: To build a semi-complex where clause from params
+//
+//Strategy: Do transformation on the params object to build out 
+//db field name while also templating out parameter. 
+
 const isDateParam=compose(
     either(equals('loadDate'),equals('updateDate')),
     head
 );
 
-//wrap :: array -> array
 const wrap = ifElse(
     isDateParam,                                    //if it's a date
     over(lensIndex(0),(str)=>`trunc( ${str} )`),    //then wrap in trunc statement
     identity                                        //else just return the str
 );
 
-//copyOver :: number -> number -> array -> array
 const copyOver=curry((fromIndex,toIndex,pair)=>(pair[toIndex]=pair[fromIndex],pair));
 
-//toWhereClause :: object -> string
 const toWhereClause=compose(
     concat('WHERE '),       //prepend the whole WHERE clause with 'WHERE'
     join(' AND '),          //join each of the pairs with AND
