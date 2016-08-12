@@ -25,7 +25,7 @@ const toWhereClause=compose(
     concat('WHERE '),       //prepend the whole WHERE clause with 'WHERE'
     join(' AND '),          //join each of the pairs with AND
     map(join(' = :')),      //for each pair, join with equals statement
-    map(wrap),              //for each pair, conditionallly wrap the first element in a 'trunc' statement
+    map(wrap),              //for each pair, conditionally wrap the first element in a 'trunc' statement
     map(copyOver(0,1)),     //for each pair, copy the first element to the second
     toPairs                 //convert the params to pairs => [['id', 1], ...]
 );
